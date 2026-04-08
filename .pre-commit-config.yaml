@@ -1,0 +1,20 @@
+repos:
+- repo: https://github.com/hhatto/autopep8
+  rev: v2.3.2
+  hooks:
+  - id: autopep8
+    args: [ --max-line-length=120, --in-place ]
+    files: \.py$
+
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.8.4
+  hooks:
+  - id: ruff
+    files: \.py$
+
+- repo: https://github.com/commitizen-tools/commitizen
+  rev: v3.29.1
+  hooks:
+  - id: commitizen
+    name: commitizen validate
+    stages: [ commit-msg ]

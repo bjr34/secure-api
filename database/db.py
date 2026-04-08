@@ -7,13 +7,14 @@ engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
-    
+
 def get_db():
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
+
 
 def get_user_with_id(db: Session, user_id: int):
     return (
@@ -22,6 +23,7 @@ def get_user_with_id(db: Session, user_id: int):
         .first()
     )
 
+
 def get_user_with_name(db: Session, username: str):
     return (
         db.query(User)
@@ -29,10 +31,10 @@ def get_user_with_name(db: Session, username: str):
         .first()
     )
 
+
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=False)
     username = Column(String, unique=True)
     hashed_password = Column(String)
     email = Column(String, unique=True)
-    

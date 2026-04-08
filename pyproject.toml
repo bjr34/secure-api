@@ -11,5 +11,8 @@ dependencies = [
     "python-jose[cryptography]==3.3.0",
     "passlib==1.7.4",
     "sqlalchemy==2.0.23",
-    "bcrypt==3.2.2"
+    "bcrypt==3.2.2",
+    "commitizen",
+    "pre-commit>=4.5.1",
 ]
+
